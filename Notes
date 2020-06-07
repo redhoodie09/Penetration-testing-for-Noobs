@@ -1,4 +1,5 @@
 Interactive Shell:
+```
 python -c 'import pty;pty.spawn("/bin/bash")'
 or
 python3 -c 'import pty;pty.spawn("/bin/bash")'
@@ -7,6 +8,7 @@ export  TERM=xterm-256color
 cltr z
 stty raw -echo
 fg enter
+```
 
 Mount: 
 showmount -e 10.10.10.180
